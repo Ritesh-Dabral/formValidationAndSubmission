@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial Class Form</title>
+
+        <!-- semantic UI -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.css" integrity="sha512-+AdxWMqfOdtwMuXK482e5OgHYzN06s97n3NTAeAdTlUvlIgCBx3SUKvMculJIedylDfVCaQFdD6HaojI4aeBUA==" crossorigin="anonymous" />
+        <!-- custom css -->
+    <link href="/css/index.css" rel="stylesheet">
+        <!-- google fonts: ranchers -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="ui huge header"><h2>Trial Class Form</h2></div>
+        <!-- form -->
+
+    
+    <div class="formContainer">
+        <form class="ui form" id='myForm' onsubmit="return onSubmit()" >
+
+            <div class="field">
+                <label>Parent's Full Name:</label>
+                <input type="text" name="parentName" placeholder="eg: John Doe" autofocus pattern="[A-Za-z ]*" required>
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+                    <label>Contact Number:</label>
+                    <input type="tel" name="contact" placeholder="eg: {7,8,9}(1 digit){0-9}(9 digits)" pattern="[789]{1}[0-9]{9}" required>
+                </div>
+                <div class="field">
+                    <label>Email:</label>
+                    <input type="email" name="email" placeholder="eg: xyz@abc.com" required>
+                </div>
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+                    <label>Child's Full Name:</label>
+                    <input type="text" name="childName" placeholder="eg: John Doe Junior" pattern="[A-Za-z ]*" required>
+                </div>
+                <div class="field">
+                    <label>Child's Age:</label>
+                    <input type="number" name="age" placeholder="eg: 5" min="5" max="17" required>
+                </div>
+            </div>
+
+            <div class="field">
+                <label>Course Select:</label>
+                <select class="ui fluid dropdown" id="selectCourse" required>
+                    <option value="">Select Course</option>
+                    <option value="Scratch Junior">Scratch Programming</option>
+                    <option value="Game Development">Game Development</option>
+                    <option value="App Development">App Development</option>
+                    <option value="Web Development">Web Development</option>
+                    <option value="Python">Python Programming</option>
+                </select>
+            </div>
+
+            <div class="two fields">
+                <div class="field">
+                    <label>Choose Date:</label>
+                    <select class="ui fluid dropdown" id="selectDate" disabled required>
+                        <option value="">Select Date</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label>Pick Slot:</label>
+                    <select class="ui fluid dropdown" id="selectTime" disabled required>
+                        <option value="">Select Time</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="ui inverted violet button" type="submit" id="submitButton">Submit</button>
+
+            <div class="ui red message" style="display: none;" id="responseMessage"></div>
+            <div class="ui green message" style="display: none;" id="successMessage"></div>
+        </form>
+    </div>
+        <!-- Script -->
+    <div class="overlay" style="display: none;" id="loading">
+        <div class="loader"></div>
+    </div>
+    <script src="/js/index.js"></script>
+</body>
+</html>
